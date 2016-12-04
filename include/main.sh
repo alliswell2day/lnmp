@@ -39,8 +39,8 @@ Dispaly_Selection()
     DBSelect="2"
     Echo_Yellow "You have 5 options for your DataBase install."
     echo "1: Install MySQL 5.1.73"
-    echo "2: Install MySQL 5.5.48 (Default)"
-    echo "3: Install MySQL 5.6.29"
+    echo "2: Install MySQL 5.5.48"
+    echo "3: Install MySQL 5.6.29 (Default)"
     echo "4: Install MariaDB 5.5.48"
     echo "5: Install MariaDB 10.0.23"
     echo "6: Install MySQL 5.7.11"
@@ -66,14 +66,14 @@ Dispaly_Selection()
         echo "You will install MySQL 5.7.11"
         ;;
     *)
-        echo "No input,You will install MySQL 5.5.48"
-        DBSelect="2"
+        echo "No input,You will install MySQL 5.6.29"
+        DBSelect="3"
     esac
 
-    if [[ "${DBSelect}" = "3" || "${DBSelect}" = "5" || "${DBSelect}" = "6" ]] && [ `free -m | grep Mem | awk '{print  $2}'` -le 1024 ]; then
-        echo "Memory less than 1GB, can't install MySQL 5.6, 5.7 or MairaDB 10!"
-        exit 1
-    fi
+    #if [[ "${DBSelect}" = "3" || "${DBSelect}" = "5" || "${DBSelect}" = "6" ]] && [ `free -m | grep Mem | awk '{print  $2}'` -le 1024 ]; then
+    #    echo "Memory less than 1GB, can't install MySQL 5.6, 5.7 or MairaDB 10!"
+    #    exit 1
+    #fi
 
     if [[ "${DBSelect}" = "4" || "${DBSelect}" = "5" ]]; then
         MySQL_Bin="/usr/local/mariadb/bin/mysql"
@@ -92,9 +92,9 @@ Dispaly_Selection()
     Echo_Yellow "You have 6 options for your PHP install."
     echo "1: Install PHP 5.2.17"
     echo "2: Install PHP 5.3.29"
-    echo "3: Install PHP 5.4.45 (Default)"
+    echo "3: Install PHP 5.4.45"
     echo "4: Install PHP 5.5.36"
-    echo "5: Install PHP 5.6.22"
+    echo "5: Install PHP 5.6.22 (Default)"
     echo "6: Install PHP 7.0.7"
     read -p "Enter your choice (1, 2, 3, 4, 5 or 6): " PHPSelect
 
@@ -118,8 +118,8 @@ Dispaly_Selection()
         echo "You will install PHP 7.0.7"
         ;;
     *)
-        echo "No input,You will install PHP 5.4.45"
-        PHPSelect="3"
+        echo "No input,You will install PHP 5.6.22"
+        PHPSelect="5"
     esac
 
 #which Memory Allocator do you want to install?
