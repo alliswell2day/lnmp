@@ -265,12 +265,12 @@ EOF
 
     cat >/usr/local/apache/conf/vhost/${domain}.conf<<eof
 <VirtualHost *:88>
-ServerAdmin webmaster@example.com
+ServerAdmin ${ServerAdmin}
 php_admin_value open_basedir "${vhostdir}:/tmp/:/var/tmp/:/proc/"
 DocumentRoot "${vhostdir}"
 ServerName ${domain}
-ErrorLog "/home/wwwlogs/${al_name}-error_log"
-CustomLog "/home/wwwlogs/${al_name}-access_log" combined
+#ErrorLog "/home/wwwlogs/${al_name}-error_log"
+#CustomLog "/home/wwwlogs/${al_name}-access_log" combined
 <Directory "${vhostdir}">
     SetOutputFilter DEFLATE
     Options FollowSymLinks
